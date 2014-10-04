@@ -65,7 +65,7 @@
     $.mobile.loading("show");
     $.ajax({
       type: 'GET',
-      url: "http://app.mitaxijj.com.ec/assets/connect/connect.php",
+      url: "http://taxi.buskoo.com/assets/connect/connect.php",
       contentType: "application/json",
       dataType: 'json',
       jsonp : "callback",
@@ -74,14 +74,14 @@
       }).done(function(response){
         if(response.state === 'ok'){
           $.mobile.loading("hide");
-          window.location.assign("http://app.mitaxijj.com.ec/agent/");
+          window.location.assign("http://taxi.buskoo.com/agent/");
         }else{
           $.mobile.loading("hide");
-          alert('No dispone de conexion a internet o el servidor no responde, verifique su conexiÃ³n y vuelva a intentarlo.');
+          alert('No dispone de conexion a internet o el servidor no responde, verifique su conexión y vuelva a intentarlo.');
         }
      }).fail(function(jqXHR, textStatus, errorThrown){
           $.mobile.loading("hide");
-          alert('No dispone de conexion a internet o el servidor no responde, verifique su conexiÃ³n y vuelva a intentarlo.');
+          alert('No dispone de conexion a internet o el servidor no responde, verifique su conexión y vuelva a intentarlo.');
 
       }); 
     
@@ -90,20 +90,21 @@
 </script>
 
 
-<title>Mi Taxi JJ</title>
+<title>Taxi-Buskoo</title>
 </head>   
 
 <body>
 
 <div data-role="page" id="principal" data-theme="f">
   <div data-theme="f" data-role="header" align="center">
-    <div></div>
+    <div>Taxi-Buskoo</div>
+    <div>Rapido, fácil y seguro!!!</div>  
   </div>
  
   <br><br>
   <div data-role="article">
     <div data-role="section" align="center">
-      <img src="taxi-logo.png" />
+      <img src="logo.png" />
     </div>
       <br><br>  
     <div data-role="section" align="center">

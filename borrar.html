@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Connection</title>
+    <style>
+	    body {
+			margin: 0;
+			padding: 0;
+		}
+		#mainContainer {
+			border: 4px #007CA6 solid;
+			background-color: #D2F4FF;
+			width: 450px;
+			height: 300px;
+			text-align: center;
+		}
+		#mainContainer a {
+			background-image: url("http://www.kirupa.com/images/giant_cloud.png");
+			background-position: center 70px;
+			background-repeat: no-repeat;
+			color: #00BFFF;
+			display: block;
+			font-family: Arial,Helvetica,sans-serif;
+			font-size: 32px;
+			padding-top: 200px;
+			text-decoration: none;
+    	}
+    	#mainContainer a:hover {
+			text-decoration: underline;
+		}
+    </style>
+</head>
+<body>
+
+<div id="mainContainer">	
+	<a href="javascript:void(0)">Check connection!</a>
+</div>
+
+<script>
+
+	var link = document.querySelector("#mainContainer a");
+	link.addEventListener("mousedown", checkConnection, false);
+	
+	function checkConnection(e) {
+		if (doesConnectionExist() == true) {
+			alert("connection exists!");
+		} else {
+			alert("connection doesn't exist!");
+		}
+	}
+	
+	function doesConnectionExist() {
+	    var xhr = new XMLHttpRequest();
+		var file = "http://www.kirupa.com/blank.png";
+		var randomNum = Math.round(Math.random() * 10000);
+		
+		xhr.open('HEAD', file + "?rand=" + randomNum, false);
+	    
+	    try {
+	    	xhr.send();
+	    	
+		    if (xhr.status >= 200 && xhr.status < 304) {
+		        return true;
+		    } else {
+		        return false;
+		    }
+	    } catch (e) {
+	    	return false;
+	    }
+	}
+</script>
+</body>
+</html>
